@@ -38,14 +38,14 @@ struct TemplateDetailView: View {
                 .foregroundColor(.gray)
             
             ScrollView {
-                ForEach(MockData.sampleTemplate.workoutData.keys.sorted(), id: \.self) { workoutItem in
-                    if let sets = MockData.sampleTemplate.workoutData[workoutItem] {
+                ForEach(MockData.sampleTemplatePushDay.workoutData.keys.sorted(), id: \.self) { workoutItem in
+                    if let sets = MockData.sampleTemplatePushDay.workoutData[workoutItem] {
                         HStack {
                             Image(systemName: "dumbbell.fill")
                                 .font(.title3)
                                 .padding()
                             
-                            Text("\(MockData.sampleTemplate.setsPerWorkout[workoutItem] ?? 0) sets")
+                            Text("\(MockData.sampleTemplatePushDay.setsPerWorkout[workoutItem] ?? 0) sets")
                                .font(.subheadline)
                                .foregroundColor(.orange)
                             
@@ -79,6 +79,6 @@ struct TemplateDetailView: View {
 
 struct TemplateDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TemplateDetailView(template: MockData.sampleTemplate)
+        TemplateDetailView(template: MockData.sampleTemplatePushDay)
     }
 }

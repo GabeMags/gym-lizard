@@ -25,8 +25,34 @@ struct Template: Hashable, Identifiable {
 
 struct MockData {
     
-    static let sampleTemplate = Template(name: "Push Day",
+    static let sampleTemplatePushDay = Template(name: "Push Day",
                                          lastPerformed: "5 days ago",
+                                         workoutData: ["Overhead Presssssssssssssssssssssssssss":    [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Bench Press":       [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6], ["pounds": 240, "reps": 6]],
+                                                       "Chest Dip":         [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Triceps Extension": [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Bench Pres":       [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Chest Di":         [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Triceps Extensio": [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Bench Pre":       [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Chest D":         [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Triceps Extensi": [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]]])
+    
+    static let sampleTemplatePullDay = Template(name: "Pull Day",
+                                         lastPerformed: "2 days ago",
+                                         workoutData: ["Overhead Presssssssssssssssssssssssssss":    [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Bench Press":       [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6], ["pounds": 240, "reps": 6]],
+                                                       "Chest Dip":         [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Triceps Extension": [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Bench Pres":       [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Chest Di":         [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Triceps Extensio": [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Bench Pre":       [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Chest D":         [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                                       "Triceps Extensi": [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]]])
+    
+    static let sampleTemplateLegDay = Template(name: "Leg Day",
+                                         lastPerformed: "69 days ago",
                                          workoutData: ["Overhead Presssssssssssssssssssssssssss":    [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
                                                        "Bench Press":       [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6], ["pounds": 240, "reps": 6]],
                                                        "Chest Dip":         [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],

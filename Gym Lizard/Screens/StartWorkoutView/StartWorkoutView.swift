@@ -15,19 +15,11 @@ struct Templates: Codable {
 struct StartWorkoutView: View {
     
     //Good morning, good afternoon, etc
-    @State private var greeting = "Unknown time. Hello!"
+    @State private var greeting = "(N/A time) Hello!"
     @State private var timeOfDayIcon = "questionmark.app.dashed"
     @State private var timeOfDayColor = Color(.black)
     
-    
-    let columns: [GridItem] = [GridItem(.flexible()),
-                               GridItem(.flexible())]
-    
-    
-    
     var body: some View {
-        
-        
         NavigationView {
             ZStack {
                 // Create a GeometryReader to get the size of the screen
@@ -48,8 +40,6 @@ struct StartWorkoutView: View {
                         
                         TemplatesSubview()
                         
-                        LazyVGrid(columns: columns) {
-                        }
                         Spacer()
                     }
                 }
