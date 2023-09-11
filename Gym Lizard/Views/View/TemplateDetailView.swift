@@ -15,7 +15,7 @@ struct TemplateDetailView: View {
         VStack {
             HStack{
                 XDismissButton()
-                    .padding(.leading)
+                    .padding(.leading, 5)
                     .frame(maxWidth: .infinity)
                 
                 Text(template.name)
@@ -41,11 +41,32 @@ struct TemplateDetailView: View {
                 ForEach(MockData.sampleTemplate.workoutData.keys.sorted(), id: \.self) { workoutItem in
                     if let sets = MockData.sampleTemplate.workoutData[workoutItem] {
                         HStack {
-                            Text(workoutItem)
-                                .font(.subheadline)
+                            Image(systemName: "dumbbell.fill")
+                                .font(.title3)
                                 .padding()
+                            
+                            Text("\(MockData.sampleTemplate.setsPerWorkout[workoutItem] ?? 0) sets")
+                               .font(.subheadline)
+                               .foregroundColor(.orange)
+                            
+                            Text(workoutItem)
+                                .font(.title3)
+                                .padding(.leading, 20)
+                                .padding(.vertical, 10)
+                                .truncationMode(.tail)
+                                .lineLimit(1)
+                            
                             Spacer()
                         }
+                        .padding(.leading)
+                        .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(
+                                            LinearGradient(gradient: Gradient(colors: [Color.orange, Color.green]), startPoint: .leading, endPoint: .trailing),
+                                            lineWidth: 2
+                                        )
+                                )
+                        .padding(.horizontal)
                     }
                 }
                 

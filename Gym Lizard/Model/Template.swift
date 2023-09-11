@@ -27,7 +27,7 @@ struct MockData {
     
     static let sampleTemplate = Template(name: "Push Day",
                                          lastPerformed: "5 days ago",
-                                         workoutData: ["Overhead Press":    [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
+                                         workoutData: ["Overhead Presssssssssssssssssssssssssss":    [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
                                                        "Bench Press":       [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6], ["pounds": 240, "reps": 6]],
                                                        "Chest Dip":         [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
                                                        "Triceps Extension": [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
