@@ -60,6 +60,7 @@
 		0008B0092AAEBDBD006C907C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0008B00C2AAECFDF006C907C /* View */,
 				0008B00A2AAEBDCB006C907C /* Buttons */,
 			);
 			path = Views;
@@ -71,6 +72,49 @@
 				00AE0F692AAEB34D00ACB215 /* XDismissButton.swift */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		0008B00B2AAECFBF006C907C /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				0008B00F2AAED054006C907C /* HistoryView */,
+				0008B00E2AAED033006C907C /* StartWorkoutView */,
+				0008B00D2AAED027006C907C /* HomeView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		0008B00C2AAECFDF006C907C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00AE0F672AAEB2E900ACB215 /* TemplateDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0008B00D2AAED027006C907C /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				00AE0F5D2AAE8EF100ACB215 /* HomeView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		0008B00E2AAED033006C907C /* StartWorkoutView */ = {
+			isa = PBXGroup;
+			children = (
+				00AE0F5F2AAE8F0600ACB215 /* StartWorkoutView.swift */,
+				00AE0F652AAEADFB00ACB215 /* TemplatesGridViewModel.swift */,
+			);
+			path = StartWorkoutView;
+			sourceTree = "<group>";
+		};
+		0008B00F2AAED054006C907C /* HistoryView */ = {
+			isa = PBXGroup;
+			children = (
+				00AE0F612AAE8F1300ACB215 /* HistoryView.swift */,
+			);
+			path = HistoryView;
 			sourceTree = "<group>";
 		};
 		00D4C6DA2AA6FA7000A4AB4B = {
@@ -92,6 +136,7 @@
 		00D4C6E52AA6FA7000A4AB4B /* Gym Lizard */ = {
 			isa = PBXGroup;
 			children = (
+				0008B00B2AAECFBF006C907C /* Screens */,
 				0008B0092AAEBDBD006C907C /* Views */,
 				0008B0062AAEB7FF006C907C /* Model */,
 				00D4C6E62AA6FA7000A4AB4B /* GymLizardApp.swift */,
@@ -100,11 +145,6 @@
 				00D4C6F12AA6FA7300A4AB4B /* Gym_Lizard.entitlements */,
 				00D4C6EA2AA6FA7000A4AB4B /* Gym_Lizard.xcdatamodeld */,
 				00D4C6F22AA6FA7300A4AB4B /* Preview Content */,
-				00AE0F5D2AAE8EF100ACB215 /* HomeView.swift */,
-				00AE0F5F2AAE8F0600ACB215 /* StartWorkoutView.swift */,
-				00AE0F612AAE8F1300ACB215 /* HistoryView.swift */,
-				00AE0F652AAEADFB00ACB215 /* TemplatesGridViewModel.swift */,
-				00AE0F672AAEB2E900ACB215 /* TemplateDetailView.swift */,
 			);
 			path = "Gym Lizard";
 			sourceTree = "<group>";
