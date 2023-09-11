@@ -10,7 +10,21 @@ import SwiftUI
 struct GymLizardTabView: View {
     var body: some View {
         TabView {
-            
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+            StartWorkoutView()
+                .tabItem {
+                    Image(systemName: "play.fill")
+                    Text("Start Workout")
+                }
+            HistoryView()
+                .tabItem {
+                    Image(systemName: "clock.fill")
+                    Text("History")
+                }
         }
     }
 }
