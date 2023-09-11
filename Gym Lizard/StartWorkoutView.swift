@@ -9,7 +9,10 @@ import SwiftUI
 
 struct StartWorkoutView: View {
     var body: some View {
-        Text("Start workout view")
+        NavigationView {
+            Text("Start workout view")
+                .navigationTitle("Start workout")
+        }
     }
 }
 

@@ -26,6 +26,7 @@ struct GymLizardTabView: View {
                     Text("History")
                 }
         }
+        .accentColor(Color("brandPrimary"))
     }
 }
 
