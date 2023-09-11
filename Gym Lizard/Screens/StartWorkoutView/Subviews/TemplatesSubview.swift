@@ -45,11 +45,21 @@ struct TemplatesSubview: View {
 
 struct TemplateView: View {
     let template: Template
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(template.name)
-                .font(.headline)
+                .fontWeight(.bold)
+                .font(.title3)
+                .foregroundColor(Color(.label))
+                .padding(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(
+                            LinearGradient(gradient: Gradient(colors: [Color.orange, Color.green]), startPoint: .leading, endPoint: .trailing),
+                            lineWidth: 2
+                        )
+                )
             Text("Last Performed: \(template.lastPerformed)")
                 .font(.subheadline)
             ForEach(template.workoutData.keys.sorted(), id: \.self) { workoutTitle in

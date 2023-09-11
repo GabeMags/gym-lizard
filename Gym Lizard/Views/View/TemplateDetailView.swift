@@ -46,8 +46,8 @@ struct TemplateDetailView: View {
                                 .padding()
                             
                             Text("\(MockData.sampleTemplatePushDay.setsPerWorkout[workoutItem] ?? 0) sets")
-                               .font(.subheadline)
-                               .foregroundColor(.orange)
+                                .font(.subheadline)
+                                .foregroundColor(.orange)
                             
                             Text(workoutItem)
                                 .font(.title3)
@@ -60,12 +60,12 @@ struct TemplateDetailView: View {
                         }
                         .padding(.leading)
                         .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(
-                                            LinearGradient(gradient: Gradient(colors: [Color.orange, Color.green]), startPoint: .leading, endPoint: .trailing),
-                                            lineWidth: 2
-                                        )
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(
+                                    LinearGradient(gradient: Gradient(colors: [Color.orange, Color.green]), startPoint: .leading, endPoint: .trailing),
+                                    lineWidth: 2
                                 )
+                        )
                         .padding(.horizontal)
                     }
                 }
@@ -73,7 +73,7 @@ struct TemplateDetailView: View {
             }
         }
         .frame(maxHeight: 300)
-       
+        
     }
 }
 
