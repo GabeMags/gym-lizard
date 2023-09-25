@@ -18,7 +18,7 @@ struct StartWorkoutView: View {
     @State private var greeting = "(N/A time) Hello!"
     @State private var timeOfDayIcon = "questionmark.app.dashed"
     @State private var timeOfDayColor = Color(.black)
-    
+    @State private var selectedTemplate: Template?
     @State private var isShowingDetailState = false
     
     let columns: [GridItem] = [GridItem(.flexible()),
@@ -69,6 +69,7 @@ struct StartWorkoutView: View {
                                     ForEach(templates) { template in
                                         TemplateView(template: template)
                                             .onTapGesture {
+                                                selectedTemplate = template
                                                 isShowingDetailState = true
                                             }
                                     }
@@ -81,13 +82,15 @@ struct StartWorkoutView: View {
                     }
                 }
                 .navigationTitle(greeting)
+                .disabled(isShowingDetailState)
             }
             .onAppear {
                 greeting = getGreeting()
             }
+            .blur(radius: isShowingDetailState ? 20 : 0)
             
             if isShowingDetailState {
-                TemplateDetailView(isShowingDetail: $isShowingDetailState, template: MockData.sampleTemplateLegDay)
+                TemplateDetailView(isShowingDetail: $isShowingDetailState, template: selectedTemplate!)
             }
         }
     }
