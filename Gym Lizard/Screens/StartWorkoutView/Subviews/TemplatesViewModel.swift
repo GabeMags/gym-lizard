@@ -7,42 +7,6 @@
 
 import SwiftUI
 
-struct TemplatesSubview: View {
-    
-    let columns: [GridItem] = [GridItem(.flexible()),
-                               GridItem(.flexible())]
-    
-    let templates = [MockData.sampleTemplatePushDay, MockData.sampleTemplatePullDay, MockData.sampleTemplateLegDay]
-    
-    var body: some View {
-        VStack{
-            HStack {
-                Text("Templates")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding()
-                    .font(.title2)
-                
-                Button(){
-                    print("New template pressed")
-                } label: {
-                    Label("Template", systemImage: "plus")
-                }
-                .padding()
-                .buttonStyle(.bordered)
-                .controlSize(.small)
-                .tint(.orange)
-            }
-            
-            LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], spacing: 16) {
-                ForEach(templates) { template in
-                    TemplateView(template: template)
-                }
-            }
-            .padding()
-        }
-    }
-}
-
 struct TemplateView: View {
     let template: Template
     
@@ -85,7 +49,10 @@ struct TemplateView: View {
     }
 }
 struct TemplatesSubview_Previews: PreviewProvider {
+    
+    let templates = [MockData.sampleTemplatePushDay, MockData.sampleTemplatePullDay, MockData.sampleTemplateLegDay]
+    
     static var previews: some View {
-        TemplatesSubview()
+        TemplateView(template: MockData.sampleTemplateLegDay)
     }
 }

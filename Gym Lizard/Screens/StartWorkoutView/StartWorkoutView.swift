@@ -14,39 +14,80 @@ struct Templates: Codable {
 
 struct StartWorkoutView: View {
     
-    //Good morning, good afternoon, etc
+    //The greeting at the top of the screen and the icon in top right
     @State private var greeting = "(N/A time) Hello!"
     @State private var timeOfDayIcon = "questionmark.app.dashed"
     @State private var timeOfDayColor = Color(.black)
     
+    @State private var isShowingDetailState = false
+    
+    let columns: [GridItem] = [GridItem(.flexible()),
+                               GridItem(.flexible())]
+    
+    let templates = [MockData.sampleTemplatePushDay, MockData.sampleTemplatePullDay, MockData.sampleTemplateLegDay]
+    
     var body: some View {
-        NavigationView {
-            ZStack {
-                // Create a GeometryReader to get the size of the screen
-                GeometryReader { geometry in
-                    // Create a background circle using an SF Symbol
-                    Image(systemName: timeOfDayIcon)
-                        .resizable()
-                        .frame(width: geometry.size.width / 1.5, height: geometry.size.height / 2.5)
-                        .foregroundColor(timeOfDayColor)
-                        .opacity(0.2) // Adjust the opacity as needed
-                        .offset(x: geometry.size.width / 2.5, y: -geometry.size.height / 4.5) // Adjust the offset to position the symbol in the top right quarter
-                }
-                
-                ScrollView {
-                    VStack (alignment: .leading){
-                        
-                        QuickstartSubview()
-                        
-                        TemplatesSubview()
-                        
-                        Spacer()
+        ZStack {
+            NavigationView {
+                ZStack {
+                    // Create a GeometryReader to get the size of the screen
+                    GeometryReader { geometry in
+                        // Create a background circle using an SF Symbol
+                        Image(systemName: timeOfDayIcon)
+                            .resizable()
+                            .frame(width: geometry.size.width / 1.5, height: geometry.size.height / 2.5)
+                            .foregroundColor(timeOfDayColor)
+                            .opacity(0.2) // Adjust the opacity as needed
+                            .offset(x: geometry.size.width / 2.5, y: -geometry.size.height / 4.5) // Adjust the offset to position the symbol in the top right quarter
+                    }
+                    
+                    ScrollView {
+                        VStack (alignment: .leading){
+                            
+                            QuickstartSubview()
+                            
+                            //Templates
+                            VStack{
+                                HStack {
+                                    Text("Templates")
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .padding()
+                                        .font(.title2)
+                                    
+                                    Button(){
+                                        print("New template pressed")
+                                    } label: {
+                                        Label("Template", systemImage: "plus")
+                                    }
+                                    .padding()
+                                    .buttonStyle(.bordered)
+                                    .controlSize(.small)
+                                    .tint(.orange)
+                                }
+                                
+                                LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], spacing: 16) {
+                                    ForEach(templates) { template in
+                                        TemplateView(template: template)
+                                            .onTapGesture {
+                                                isShowingDetailState = true
+                                            }
+                                    }
+                                }
+                                .padding()
+                            }
+                            
+                            Spacer()
+                        }
                     }
                 }
                 .navigationTitle(greeting)
-                .onAppear {
-                    greeting = getGreeting()
-                }
+            }
+            .onAppear {
+                greeting = getGreeting()
+            }
+            
+            if isShowingDetailState {
+                TemplateDetailView(isShowingDetail: $isShowingDetailState, template: MockData.sampleTemplateLegDay)
             }
         }
     }
