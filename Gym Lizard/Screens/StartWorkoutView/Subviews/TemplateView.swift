@@ -16,36 +16,38 @@ struct TemplateView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(template.name)
                         .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.title3)
                         .foregroundColor(Color(.label))
-                        .padding(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(
-                                    LinearGradient(gradient: Gradient(colors: [Color.orange, Color.green]), startPoint: .leading, endPoint: .trailing),
-                                    lineWidth: 2
-                                )
-                        )
+                        
                     Text("Last Performed: \(template.lastPerformed)")
                         .font(.subheadline)
+                        .foregroundColor(.gray)
+                    
                     ForEach(template.workoutData.keys.sorted(), id: \.self) { workoutTitle in
                         HStack {
-                            Text(workoutTitle)
+                            Text("\(template.setsPerWorkout[workoutTitle] ?? 0) Sets")
                                 .font(.subheadline)
                             Spacer()
-                            Text("Sets: \(template.setsPerWorkout[workoutTitle] ?? 0)")
+                            Text(workoutTitle)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.subheadline)
+                                
+                            
                         }
                     }
                 }
                 .padding()
                 .background(Color.gray.opacity(0.1))
-                .cornerRadius(10)
                 .frame(minHeight: geometry.size.height) // Set the minimum height to the height of the available space
                 .clipped() // Truncate content exceeding the maximum height
             }
+            .disabled(true)
         }
-        .frame(height: 300) // Set the desired height for truncation
+        .frame(height: 200) // Set the desired height for truncation
+        .cornerRadius(15)
+        .shadow(radius: 40)
+        
     }
 }
 struct TemplatesSubview_Previews: PreviewProvider {
