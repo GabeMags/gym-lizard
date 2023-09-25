@@ -80,6 +80,19 @@ struct TemplateDetailView: View {
                     }
                     
                 }
+                
+                Button(){
+                    print("Begin workout pressed")
+                } label: {
+                    Text("Start Workout")
+                        .padding(.horizontal, 70)
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.regular)
+                .foregroundColor(.black)
+                .tint(.orange)
+                .frame(maxWidth: .infinity)
+                .padding()
             }
             .frame(maxHeight: 450)
         }
