@@ -14,12 +14,17 @@ struct Templates: Codable {
 
 struct StartWorkoutView: View {
     
-    //The greeting at the top of the screen and the icon in top right
+    // The greeting at the top of the screen and the icon in top right
     @State private var greeting = "(N/A time) Hello!"
     @State private var timeOfDayIcon = "questionmark.app.dashed"
     @State private var timeOfDayColor = Color(.black)
     @State private var selectedTemplate: Template?
+    
+    // For knowing when to show the details of the workout template
     @State private var isShowingDetailState = false
+    
+    // Keeps track when to transition to the workout view
+    @State private var isStartingWorkout = false
     
     let columns: [GridItem] = [GridItem(.flexible()),
                                GridItem(.flexible())]
@@ -29,6 +34,7 @@ struct StartWorkoutView: View {
     var body: some View {
         ZStack {
             NavigationView {
+                // The goodmorning title and icon effect
                 ZStack {
                     // Create a GeometryReader to get the size of the screen
                     GeometryReader { geometry in
@@ -41,13 +47,15 @@ struct StartWorkoutView: View {
                             .offset(x: geometry.size.width / 2.5, y: -geometry.size.height / 4.5) // Adjust the offset to position the symbol in the top right quarter
                     }
                     
+                    //The entire view under "Good Morning"/"Good evening"/etc
                     ScrollView {
                         VStack (alignment: .leading){
                             
+                            // The section that asks if you want to start an empty workout
                             QuickstartSubview()
                             
-                            //Templates
-                            VStack{
+                            //Templates view
+                            VStack {
                                 HStack {
                                     Text("Templates")
                                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -76,21 +84,36 @@ struct StartWorkoutView: View {
                                 }
                                 .padding()
                             }
-                            
                             Spacer()
                         }
                     }
                 }
                 .navigationTitle(greeting)
                 .disabled(isShowingDetailState)
+                
+                // Performs transition to the workout view if a start workout button was pressed on the template detail view
+                NavigationLink(
+                    destination: WorkoutView(template: selectedTemplate!),
+                    isActive: $isStartingWorkout,
+                    label: { EmptyView() }
+                )
+                .hidden() // Hide the NavigationLink, but it will still work
             }
             .onAppear {
                 greeting = getGreeting()
             }
             .blur(radius: isShowingDetailState ? 20 : 0)
             
+            // Show the detail of a template as a pop up if it's been tapped
             if isShowingDetailState {
-                TemplateDetailView(isShowingDetail: $isShowingDetailState, template: selectedTemplate!)
+                TemplateDetailView(isShowingDetail: $isShowingDetailState,
+                                   didStartWorkout: $isStartingWorkout,
+                                   template: selectedTemplate!)
+            }
+            
+            // Transition to the workout view if start workout button was pressed in the detail view above
+            if isStartingWorkout {
+                WorkoutView(template: selectedTemplate!)
             }
         }
     }

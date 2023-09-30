@@ -24,8 +24,9 @@ struct Template: Hashable, Identifiable {
 }
 
 struct MockData {
+    let id = UUID()
     
-    static let sampleTemplatePushDay = Template(name: "Push Day",
+    static let sampleTemplatePushDay = Template(name: "Push",
                                          lastPerformed: "5 days ago",
                                          workoutData: ["Overhead Presssssssssssssssssssssssssss":    [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6]],
                                                        "Bench Press":       [["pounds": 200, "reps": 10], ["pounds": 220, "reps": 8], ["pounds": 240, "reps": 6], ["pounds": 240, "reps": 6]],

@@ -9,7 +9,11 @@ import SwiftUI
 
 struct TemplateDetailView: View {
     
+    // For knowing when to dismiss this view
     @Binding var isShowingDetail: Bool
+    
+    // For knowing when to move to the workout view
+    @Binding var didStartWorkout: Bool
     
     var template: Template
     
@@ -82,7 +86,7 @@ struct TemplateDetailView: View {
                 }
                 
                 Button(){
-                    print("Begin workout pressed")
+                    didStartWorkout = true
                 } label: {
                     Text("Start Workout")
                         .padding(.horizontal, 70)
@@ -107,6 +111,7 @@ struct TemplateDetailView: View {
 struct TemplateDetailView_Previews: PreviewProvider {
     static var previews: some View {
         TemplateDetailView(isShowingDetail: .constant(true),
+                           didStartWorkout: .constant(false),
                            template: MockData.sampleTemplatePushDay)
     }
 }

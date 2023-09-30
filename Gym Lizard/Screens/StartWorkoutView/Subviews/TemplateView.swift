@@ -32,8 +32,6 @@ struct TemplateView: View {
                             Text(workoutTitle)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .font(.subheadline)
-                                
-                            
                         }
                     }
                 }
@@ -47,7 +45,6 @@ struct TemplateView: View {
         .frame(height: 200) // Set the desired height for truncation
         .cornerRadius(15)
         .shadow(radius: 40)
-        
     }
 }
 struct TemplatesSubview_Previews: PreviewProvider {
